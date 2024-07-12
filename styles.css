@@ -37,3 +37,21 @@ h1 {
     color: #ff0000;
     cursor: pointer;
 }
+
+.filter-section {
+    margin-bottom: 1em;
+}
+
+.filter-section h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.filter-section label {
+    display: block;
+    margin: 0.5em 0;
+}
+
+.filter-section input {
+    margin-right: 0.5em;
+}
