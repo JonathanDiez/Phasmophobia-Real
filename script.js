@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Definición de los fantasmas y sus evidencias
     const ghosts = {
         "Espíritu": ["EMF", "Spirit Box", "Escritura fantasmal"],
         "Espectro": ["Huellas dactilares", "EMF", "Spirit Box"],
@@ -26,26 +27,37 @@ document.addEventListener('DOMContentLoaded', () => {
         "Thaye": ["Spirit Box", "Escritura fantasmal", "Orbes espectrales"]
     };
 
+    // Selecciona los elementos del DOM
     const evidenceCheckboxes = document.querySelectorAll('.evidence');
     const filteredGhostsList = document.getElementById('filtered-ghosts');
 
+    // Añade un evento para cada checkbox
     evidenceCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filterGhosts);
     });
 
+    // Función para filtrar los fantasmas basados en las evidencias seleccionadas
     function filterGhosts() {
         const selectedEvidences = Array.from(evidenceCheckboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.value);
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
 
-        filteredGhostsList.innerHTML = '';
+    filteredGhostsList.innerHTML = '';
 
-        for (const [ghost, evidences] of Object.entries(ghosts)) {
-            if (selectedEvidences.every(evidence => evidences.includes(evidence))) {
-                const li = document.createElement('li');
-                li.textContent = ghost;
-                filteredGhostsList.appendChild(li);
-            }
+    // Filtrar y mostrar fantasmas que coincidan con las evidencias seleccionadas
+    for (const [ghost, evidences] of Object.entries(ghosts)) {
+        if (selectedEvidences.every(evidence => evidences.includes(evidence))) {
+            const li = document.createElement('li');
+            li.textContent = ghost;
+            filteredGhostsList.appendChild(li);
         }
     }
+
+    // Si no se encuentra ningún fantasma, mostrar un mensaje de error
+    if (filteredGhostsList.children.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'No se encontraron fantasmas que coincidan con las pruebas seleccionadas.';
+        filteredGhostsList.appendChild(li);
+    }
+}
 });

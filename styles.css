@@ -10,15 +10,67 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
+    text-align: center;
+    overflow: hidden; /* Evita que haya desplazamiento horizontal */
+}
+
+header {
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
     text-align: center;
 }
 
 h1 {
     font-size: 3em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 120px; /* Ajusta según el tamaño del título */
+    padding: 20px;
+}
+
+.filters {
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.filters h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.evidence-checkboxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.evidence-checkboxes label {
+    margin-bottom: 10px;
+}
+
+.ghosts {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.ghosts h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .ghost-list {
@@ -27,31 +79,16 @@ h1 {
 }
 
 .ghost-list li {
-    font-size: 1.5em;
-    margin: 0.2em 0;
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
     transition: transform 0.3s, color 0.3s;
-}
-
-.ghost-list li:hover {
-    transform: scale(1.1);
-    color: #ff0000;
     cursor: pointer;
 }
 
-.filter-section {
-    margin-bottom: 1em;
-}
-
-.filter-section h2 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-}
-
-.filter-section label {
-    display: block;
-    margin: 0.5em 0;
-}
-
-.filter-section input {
-    margin-right: 0.5em;
+.ghost-list li:hover {
+    transform: scale(1.05);
+    color: #ff0000;
 }
